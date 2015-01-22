@@ -20,6 +20,4 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 4.1.0"
   s.add_dependency "yaml_db"
   s.add_dependency "aws-sdk"
-
-  s.add_development_dependency "sqlite3"
 end
