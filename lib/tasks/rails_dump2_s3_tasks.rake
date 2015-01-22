@@ -1,6 +1,5 @@
 require "yaml_db"
 require "aws-sdk"
-require "pp"
 
 def s3 
 	AWS::S3.new(
@@ -26,11 +25,9 @@ end
 namespace :rails_dump2_s3 do
 	desc "execute db:data:dump, and submit to S3"
 	task :dump => :environment do
-	  format_class = ENV['class'] || "YamlDb::Helper"
-    helper = format_class.constantize
-    pp db_dump_data_file
-    SerializationHelper::Base.new(helper).dump db_dump_data_file helper.extension
+    data_file = "#{Rails.root}/db/data.yml"
+    SerializationHelper::Base.new(YamlDb::Helper).dump data_file
 
-    s3_object.objects[Time.now.strftime("%Y-%m-%d-%H%M%S")].write(file: db_dump_data_file)
+    s3_object.objects[Time.now.strftime("%Y-%m-%d-%H%M%S")].write(file: data_file)
 	end
 end

@@ -1,0 +1,1 @@
+require "rails_dump2_s3"
