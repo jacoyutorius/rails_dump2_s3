@@ -1,10 +1,11 @@
 # RailsDump2S3
-====
+
+Dump rails db to YAML format, and submit to AmazonS3.
 
 
 ## Description
 
-Upload db:dump file to AmazonS3.
+Execute "db:data:dump" (it depends on 'YAML_DB' gem). and upload output file to AmazonS3.
 
 
 ## Usage
@@ -28,8 +29,9 @@ gem install "rails_dump2_s3"
 
 ## Licence
 
-[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
+[MIT](https://github.com/nils-werner/dump_db/blob/master/LICENCE)
 
 ## Author
 
 [jacoyutorius](https://github.com/jacoyutorius)
+
