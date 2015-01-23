@@ -1,5 +1,7 @@
 # RailsDump2S3
 
+[![Gem Version](https://badge.fury.io/rb/rails_dump2_s3.svg)](http://badge.fury.io/rb/rails_dump2_s3)
+
 Dump rails db to YAML format, and submit to AmazonS3.
 
 
