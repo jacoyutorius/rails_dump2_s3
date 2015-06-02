@@ -27,8 +27,8 @@ namespace :rails_dump2_s3 do
 	task :dump => :environment do
 		zipname = "base-#{Rails.env}"
 
-		system("bin/rake db:data:dump_dir")
-    system("zip db/#{zipname}.zip db/base/*")
+		system("bin/rake db:data:dump_dir dir=#{zipname}")
+    system("zip db/#{zipname}.zip db/#{zipname}/*")
     s3_object.objects[Time.now.strftime("base-#{Rails.env}-%Y-%m-%d-%H%M%S.zip")].write(file: "db/#{zipname}.zip")
 	end
 end

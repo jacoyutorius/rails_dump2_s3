@@ -9,6 +9,9 @@ Dump rails db to YAML format, and submit to AmazonS3.
 
 Execute "db:data:dump" (it depends on 'YAML_DB' gem). and upload output file to AmazonS3.
 
+(2015.6.2)
+it still not support to AWS-SDKv2, sorry.
+
 
 ## Usage
 
