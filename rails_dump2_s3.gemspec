@@ -19,5 +19,5 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", ">= 4.0.0"
   s.add_dependency "yaml_db"
-  s.add_dependency "aws-sdk"
+  s.add_dependency "aws-sdk",'~> 1.61.0'
 end
