@@ -22,14 +22,20 @@ export AWS_SECRET_ACCESS_KEY="Your aws secret acccess key"
 rake rails_dump2_s3:dump
 ```
 
+* adding prefix to file
+
+```
+export DUMP2S3_PREFIX=major
+bin/rake rails_dump2_s3:dump
+ => adding: db/base-development-major-2015-10-05-183924.zip
+```
+
 
 ## Install
 
 ```bash
 gem install "rails_dump2_s3"
 ```
-
-## Contribution
 
 
 ## Licence
