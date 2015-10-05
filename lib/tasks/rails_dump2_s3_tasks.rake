@@ -9,7 +9,7 @@ def s3
 end
 
 def app_name
-	Rails.application.class.parent_name
+	Rails.application.class.parent_name.underscore
 end
 
 def s3_object
@@ -25,7 +25,15 @@ end
 namespace :rails_dump2_s3 do
 	desc "execute db:data:dump, and submit to S3"
 	task :dump => :environment do
-		filename = "base-#{Rails.env}-#{Time.now.strftime("%Y-%m-%d-%H%M%S")}"
+
+		prefix = ENV["DUMP2S3_PREFIX"] || ""
+
+		name = []
+		name << "base"
+		name << Rails.env
+		name << prefix if prefix.present?
+		name << "#{Time.now.strftime("%Y-%m-%d-%H%M%S")}"
+		filename = name.join("-")
 
 		system("bin/rake db:data:dump_dir dir=#{filename}")
     system("zip db/#{filename}.zip db/#{filename}/*")
