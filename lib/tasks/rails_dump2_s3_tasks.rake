@@ -40,7 +40,7 @@ namespace :rails_dump2_s3 do
     s3_object.objects["#{filename}.zip"].write(file: "db/#{filename}.zip")
 
 		# アップロードしたファイルの削除
-		system("rm rf db/#{filename}.zip")
-		system("rm rf db/#{filename}/*")
+		system("rm -rf db/#{filename}.zip")
+		system("rm -rf db/#{filename}*")
 	end
 end
