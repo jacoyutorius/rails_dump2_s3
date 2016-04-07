@@ -1,7 +1,7 @@
 require "yaml_db"
 require "aws-sdk"
 
-def s3 
+def s3
 	AWS::S3.new(
 		access_key_id: ENV["AWS_ACCESS_KEY"],
 		secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
@@ -38,5 +38,9 @@ namespace :rails_dump2_s3 do
 		system("bin/rake db:data:dump_dir dir=#{filename}")
     system("zip db/#{filename}.zip db/#{filename}/*")
     s3_object.objects["#{filename}.zip"].write(file: "db/#{filename}.zip")
+
+		# アップロードしたファイルの削除
+		system("rm rf db/#{filename}.zip")
+		system("rm rf db/#{filename}/*")
 	end
 end
