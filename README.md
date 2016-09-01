@@ -37,6 +37,14 @@ bin/rake rails_dump2_s3:dump
 gem install "rails_dump2_s3"
 ```
 
+## Don't export specific table
+
+if you don't export 'sessions' table..
+Just do this.
+
+```
+bin/rake rails_dump2_s3:dump EXCLUDE_TABLES="sessions"
+```
 
 ## Licence
 
