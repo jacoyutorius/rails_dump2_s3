@@ -1,5 +1,6 @@
 require "yaml_db"
 require "aws-sdk"
+require_relative "./yaml_db/serialization_helper"
 
 def s3
 	AWS::S3.new(
